@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Friend Finder</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8"></div>
+		<div class="col-md-4">
+			<a href="https://github.com/rusomatroso/friend_finder.git"> &#8608 GitHub Repo &#8606</a>
+			<a href="/api/friends" target="_blank"> &#8608 API Friends List &#8606</a>
+		</div>
+	</div>
+	<div class="jumbotron">
+
+		<h1 class="display-4">Let's find you a fiend!</h1>
+		<p class="lead">Please answer the questions below to find your match:</p>
+		<hr class="my-4">
+		<form>
+			<div class="form-group">
+				<label for="name">Your Name</label>
+				<input type="text" class="form-control" id="name" placeholder="Name">
+			</div>
+			<div class="form-group">
+				<label for="photo">Link to your best photo!</label>
+				<input type="text" class="form-control" id="photo" placeholder="Photo">
+			</div>
+			<h5> Choose from 1 (strongly disagree) to 5 (strongly agree). </h5>
+			<div class="form-group">
+				<label for="name">Do you like beer?</label>
+				<select class="form-control" id="q1">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="name">Are you an NHL fan?</label>
+				<select class="form-control" id="q2">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="name">Do you consider yourself healthy?</label>
+				<select class="form-control" id="q3">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="name">Do you consume cannabis in any form?</label>
+				<select class="form-control" id="q4">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="name">Are you a Trump supporter?</label>
+				<select class="form-control" id="q5">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="name">Do you like snow sports?</label>
+				<select class="form-control" id="q6">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="name">Do you cook more than twice a week?</label>
+				<select class="form-control" id="q7">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="name">Are you vegeterian?</label>
+				<select class="form-control" id="q8">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="name">Do you like Rap and R&B?</label>
+				<select class="form-control" id="q9">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="name">Are you a Leaf's fan?</label>
+				<select class="form-control" id="q10">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary submit survey-btn" data-toggle="modal" data-target="#myModal">
+				Submit
+			</button>
+		</form>
+
+
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">Your Best Match!</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+								aria-hidden="true">&times;</span></button>
+
+					</div>
+
+					<div class="modal-body">
+						<h2 class="text-center" id="friendMatch"></h2>
+						<img id="friendPic" class="img-responsive center-block" style="height:200px"
+						     alt="Responsive image">
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="./assets/data/index.js"></script>
+</body>
+</html>
